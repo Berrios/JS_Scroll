@@ -24,17 +24,23 @@
 	Coding is <div id="magic"></div>
 
 	<script>
-
-	var words = ["fun", "exciting", "about not giving up", "being helpful", "being open", "what I learned at CodingDojo!"],
+	
+	(function (){
+	 	var words = ["fun", "exciting", "about not giving up", "being helpful", "being open", "what I learned at CodingDojo!"],
 			el = document.getElementById('magic'),
 			word_counter = 0,
 			character_counter = 0;
 
+			for (var i = 0; i < words.length; i++) {
+			 		var test = words[i].replace(/ /g, String.fromCharCode(160));
+			 		//console.log(test);
+			 	}
+
 		function updateText()
 		{
 			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
-
-			if(character_counter == words[word_counter].length)
+		
+			if(character_counter == words[word_counter].length+1)
 			{
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
@@ -45,8 +51,12 @@
 					word_counter = 0;
 			}
 		}
-
 		setInterval(updateText,300);
+	})();
+
+	//console.log(el);
+	//console.log(word_counter);
+	//console.log(character_counter);
 
 	</script>
 
